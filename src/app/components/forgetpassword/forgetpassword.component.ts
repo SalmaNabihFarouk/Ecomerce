@@ -23,9 +23,7 @@ step3:boolean=false;
   forgetform:FormGroup=new FormGroup({
   
     email:new FormControl('',[Validators.required,Validators.email]),
-    // password:new FormControl('',[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/)]),
-    // rePassword :new FormControl(null,[Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/),Validators.required]),
-    // phone :new FormControl('',[Validators.pattern(/^01[0125][0-9]{8}$/),Validators.required]),
+  
   })
 
 

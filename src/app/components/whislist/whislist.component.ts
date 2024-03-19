@@ -4,7 +4,7 @@ import { Whishlist } from './../../shared/interfaces/whishlist';
 
 import { Component } from '@angular/core';
 import { WhislistService } from 'src/app/service/whislist.service';
-
+ 
 
 @Component({
   selector: 'app-whislist',
