@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/service/auth.service';
@@ -35,6 +35,7 @@ export class LoginComponent {
       console.log(responce);
       this._Router.navigate(["home"])
       localStorage.setItem("usertoken",responce.token);
+      this._AuthService.decodeUser();
       console.log("llll");
 
   

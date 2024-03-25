@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   cartnumber:BehaviorSubject<number>=new BehaviorSubject(0)
-
-  constructor( private _HttpClient:HttpClient) {
+useri:any;
+  constructor( private _HttpClient:HttpClient,private _AuthService:AuthService) {
    }
  usertoken:any={
   token:localStorage.getItem('usertoken')
@@ -36,10 +37,10 @@ getcart():Observable<any>{
     headers:this.usertoken
   })
 }
-getorder():Observable<any>{
-  return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/user/6407cf6f515bdcf347c09f17`)
+// getorder():Observable<any>{
+//   return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/user/6407cf6f515bdcf347c09f17`)
  
- }
+//  }
 
 delet(id:string):Observable<any>{
 return this._HttpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,{
@@ -77,6 +78,12 @@ checkout(id:string,user:object):Observable<any>{
  
  )
 }
+
+getuserorder(id:any):Observable<any>{
+//  this.useri= this._AuthService.userid.id
+  return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
+}
+
 
 
 }

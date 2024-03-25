@@ -7,6 +7,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { category } from 'src/app/shared/interfaces/category';
+import { AuthService } from 'src/app/shared/service/auth.service';
 
 @Component({
   selector: 'app-homee',
@@ -55,7 +56,7 @@ export class HomeeComponent  implements OnInit{
     nav: false,
     autoplay:true
   }
-constructor(private _EcodataService :EcodataService ,private _CartService :CartService,private _ToastrService:ToastrService,private _WhislistService:WhislistService){
+constructor(private _EcodataService :EcodataService ,private _CartService :CartService,private _ToastrService:ToastrService,private _WhislistService:WhislistService,private _AuthService:AuthService){
 
 }
 productdata:any[]=[];
@@ -63,7 +64,7 @@ categories:category[]=[];
 datainput:string=''
 
 ngOnInit():void{
-
+this._AuthService.decodeUser();
 
 
  this. _EcodataService.getproduct().subscribe({

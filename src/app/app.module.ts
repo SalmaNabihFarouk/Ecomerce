@@ -28,6 +28,7 @@ import { WhislistComponent } from './components/whislist/whislist.component';
 import { SerchPipe } from './serch.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './loading.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { LoadingInterceptor } from './loading.interceptor';
     CarouselModule,
     FormsModule,
     ToastrModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}],
   bootstrap: [AppComponent]

@@ -14,11 +14,13 @@ import { WhislistService } from 'src/app/service/whislist.service';
 export class WhislistComponent {
   data:Whishlist[]=[];
   whishlist:string[]=[];
+  c:any=undefined;
     constructor(private _WhislistService:WhislistService,private _ToastrService:ToastrService,private _CartService:CartService){
   
     }
   
   ngOnInit(): void {
+
    this._WhislistService.getwhislist().subscribe({
     next:(responce)=>{
   console.log(responce);
@@ -35,6 +37,7 @@ export class WhislistComponent {
   
   
   addwhishlist(id:string){
+
     this._WhislistService.addtowhishlist(id).subscribe({
       next:(responce)=>{
   console.log(responce);
@@ -47,6 +50,7 @@ export class WhislistComponent {
   
   
   removefav(id:string){
+ 
     this._WhislistService.removewhislist(id).subscribe({
       next:(responce)=>{
   console.log(responce);

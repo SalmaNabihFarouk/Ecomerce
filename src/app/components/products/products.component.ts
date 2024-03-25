@@ -13,8 +13,9 @@ import { product } from 'src/app/shared/interfaces/products';
 })
 export class ProductsComponent {
   whishlist:string[]=[];
-
-
+  pageSize:number=0;
+  currentpage:number=0;
+  total:number=0;
   productdata:product[]=[];
  categories:category[]=[];
  datainput:string=''
@@ -32,6 +33,9 @@ export class ProductsComponent {
        console.log(responce);
    
        this.productdata=responce.data;
+       this.pageSize=responce.metadata.limit
+       this.currentpage=responce.metadata.currentPage
+       this.total=responce.results
      }
     })
    
@@ -86,5 +90,10 @@ export class ProductsComponent {
      })
    
    
+   }
+
+   pageChanged(e:any):void{
+   
+
    }
 }

@@ -6,7 +6,10 @@
     <input type="text" [(ngModel)]="datainput" class=" form-control w-50 form-control-sm mx-auto my-4  py-2  text-bg-light  "placeholder="Search.....">
     <div class="row g-4">
 
-        <div class="col-md-3 " *ngFor="let item of productdata|serch:datainput ">
+        <div class="col-md-3 " *ngFor="let item of productdata|serch:datainput| paginate: { id: 'productpaginate',
+        itemsPerPage: pageSize,
+        currentPage: currentpage,
+        totalItems: total } ">
 
 
   <div class="position-relative card product ">
@@ -38,7 +41,19 @@
     
     </div></div>
 
-
+    <pagination-controls  id="productpaginate"
+    (pageChange)="pageChanged($event)"
+    (pageBoundsCorrection)="pageChanged($event)"
+    [maxSize]="9"
+    [directionLinks]="true"
+    [autoHide]="true"
+    [responsive]="true"
+    previousLabel="Previous"
+    nextLabel="Next"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page">
+</pagination-controls>
 
 
 
