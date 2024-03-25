@@ -153,6 +153,7 @@ a:hover {
   color: #fff;
   cursor: pointer;
   transition: background-color 0.5s;
+
 }
 .btn-main:disabled {
   cursor: not-allowed;
@@ -181,8 +182,10 @@ a:hover {
 .main-btn{
   transform: translateY(200%);
   transition: all 0.5s;
+  opacity: 0;
 
 }
 .product:hover .main-btn{
   transform: translateY(0%);
+  opacity: 1;
 }
