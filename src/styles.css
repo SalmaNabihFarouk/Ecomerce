@@ -128,7 +128,7 @@ a:hover {
 
 
 .product:hover {
-  box-shadow: 0 0 10px #11bd1168 !important;
+  box-shadow: 0 0 10px #bd331168 !important;
   /* box-shadow: $shadow !important; */
 /* border:1px solid $bgColor !important; */
 }
